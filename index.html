@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alessio Basili — Computer Science Engineer</title>
   <meta name="description" content="Alessio Basili — Computer Science Engineer, MSc student at Politecnico di Milano." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><ellipse cx='50' cy='65' rx='38' ry='28' fill='%23FFD700'/><circle cx='50' cy='38' r='20' fill='%23FFD700'/><ellipse cx='67' cy='40' rx='12' ry='7' fill='%23FF8C00'/><circle cx='56' cy='33' r='3' fill='%23222'/><circle cx='57' cy='32' r='1' fill='white'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -489,6 +490,22 @@
 <div style="position:relative; overflow:hidden;">
   <section class="hero">
     <div class="hero-content">
+      <div style="margin-bottom:1.25rem;">
+        <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 4px 12px rgba(255,215,0,0.35))">
+          <!-- body -->
+          <ellipse cx="50" cy="67" rx="38" ry="26" fill="#FFD700"/>
+          <!-- wing shading -->
+          <ellipse cx="44" cy="72" rx="22" ry="13" fill="#FFC200" opacity="0.6"/>
+          <!-- head -->
+          <circle cx="50" cy="38" r="21" fill="#FFD700"/>
+          <!-- beak -->
+          <ellipse cx="69" cy="41" rx="13" ry="7" fill="#FF8C00"/>
+          <ellipse cx="69" cy="44" rx="11" ry="5" fill="#E07000"/>
+          <!-- eye -->
+          <circle cx="57" cy="33" r="3.5" fill="#1a1a1a"/>
+          <circle cx="58" cy="32" r="1.2" fill="white"/>
+        </svg>
+      </div>
       <div class="hero-tag">
         <span data-lang="it">MSc @ Politecnico di Milano</span>
         <span data-lang="en">MSc @ Politecnico di Milano</span>
@@ -768,8 +785,8 @@
       Have an interesting project or opportunity to share? Drop me a line — I always reply.
     </p>
     <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:alessio@alessiobasili.com">
-        ✉️ alessio@alessiobasili.com
+      <a class="btn btn-primary js-email" href="#">
+        ✉️ <span data-lang="it">Scrivimi una email</span><span data-lang="en">Send me an email</span>
       </a>
       <a class="btn btn-ghost" href="https://github.com/abasili98" target="_blank" rel="noopener">
         GitHub ↗
@@ -794,6 +811,18 @@
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.documentElement.lang = lang;
   }
+
+  // Email obfuscation — assembled at runtime, never in the HTML source
+  (function() {
+    const parts = ['ales', 'sio', '@', 'alessiob', 'asili', '.com'];
+    const addr = parts.join('');
+    document.querySelectorAll('.js-email').forEach(el => {
+      el.href = 'mai' + 'lto:' + addr;
+      el.addEventListener('mouseenter', function() {
+        this.title = addr;
+      });
+    });
+  })();
 </script>
 
 </body>
